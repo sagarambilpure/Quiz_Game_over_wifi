@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset=utf-8>
+  <title>Welcome</title>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'library/css/styles.css' %}">
+</head>
+<body>
+  <h2>Welcome to Binge Squad</h2>
+  <hr>
+  <img src="{% static 'library/image/bg.jpeg'  %}" alt="" class="bg">
+  <form class="registerform" action="{% url 'gamerregister' %}" method="post">
+    {% csrf_token %}
+    <p>
+      <input type="text" name="username" value="" placeholder="username" required>
+    </p>
+    <p>
+      <input type="password" name="password" value=""placeholder="password" required>
+    </p>
+    <p>
+      <input type="text" name="gamingname" value="" placeholder="gamingname" required>
+    </p>
+    <p>
+      <input type="submit" name="submit" value="register">
+    </p>
+  </form>
+
+
+
+</body>
+</html>

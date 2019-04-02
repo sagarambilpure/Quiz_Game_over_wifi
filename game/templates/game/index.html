@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset=utf-8>
+  <title>Welcome</title>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'library/css/styles.css' %}">
+</head>
+<body>
+  <h2>Welcome to Binge Squad</h2>
+  <hr>
+  <img src="{% static 'library/image/bg.jpeg'  %}" alt="" class="bg">
+  <form class="loginform" action="{% url 'authenticateuser' %}" method="post">
+    {% csrf_token %}
+    <p>
+      <input type="text" name="username" value="" placeholder="username">
+    </p>
+    <p>
+      <input type="password" name="password" value=""placeholder="password">
+    </p>
+    <p>
+      <input type="submit" name="submit" value="login">
+      {% if loginfail %}
+    <div class="alert alert-success">
+    Login Fail
+    </div>
+    {% endif %}
+      <a href="{% url 'register' %}">Register</a>
+    </p>
+  </form>
+
+
+
+</body>
+</html>

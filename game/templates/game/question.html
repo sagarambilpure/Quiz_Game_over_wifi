@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    {% load static %}
+    <title>Home</title>
+    <style >
+      ol,li,span,input{
+        font-size:30px
+      }
+      .btn {
+    display: inline-block;
+    background-color: #f44336;
+    color: #FFFFFF;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin-left: 20px;
+    opacity: 0.9;
+}
+      .question{
+        text-align:left;
+        padding-left:20%;
+      }
+      .option{
+        text-align:left;
+      }
+      /* For Firefox */
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+/* Webkit browsers like Safari and Chrome */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.btn1{
+display: inline-block;
+text-decoration: none;
+background: #db4b2c;
+color: #FFF;
+width: 300px;
+height: 300px;
+line-height: 120px;
+border-radius: 50%;
+vertical-align: middle;
+overflow: hidden;
+box-shadow: 0px 0px 0px 5px #db4b2c;
+border: dashed 1px #FFF;
+transition: .4s;
+text-align:center;
+}
+
+.btn1:hover{
+background: #668ad8;
+box-shadow: 0px 0px 0px 5px #668ad8;
+animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+transform: translate3d(0, 0, 0);
+backface-visibility: hidden;
+perspective: 1000px;
+
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+    </style>
+  </head>
+  {% csrf_token %}
+  <body>
+    <!-- <i>Welcome </i> -->
+     <a class="btn" style="float:right;text-style:none;" href="{%url 'logout' %}"> Logout</a>
+    <h1>{{ gamingname }}!! Welcome to Binge Sqaud</h1>
+
+    <div class="">
+      <div class="question">
+        <div class="optons">
+        <form  method="post" action="{% url 'answersubmit' %}">
+          {% csrf_token %}
+          <ol>
+            Question Number <input type="number" name="question" readOnly="True" value="12"><br><br>
+            <!-- <span>Q.  </span><span style="padding-right:10%;">Questions on Whats</span>
+            <li><input type="radio" name="option" checked value="1"> Whats up?</li>
+            <li><input type="radio" name="option" value="2"> Whats down?</li>
+            <li><input type="radio" name="option" value="3"> Whats left?</li>
+            <li><input type="radio" name="option" value="4"> Whats right?</li> -->
+            <!-- <div class="round-button"><div class="round-button-circle"><input type="submit" class="round-button"  value="BUZZZZ!!"></div></div> -->
+            <center><input class="btn1" type="submit" value="BUZZZZ!!"></center>
+
+          </ol>
+        </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

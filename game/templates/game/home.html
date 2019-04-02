@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+  <style >
+    ol,li,span,input{
+      font-size:30px
+    }
+    .btn {
+  display: inline-block;
+  background-color: #f44336;
+  color: #FFFFFF;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin-left: 20px;
+  opacity: 0.9;
+}
+    .question{
+      text-align:left;
+      padding-left:20%;
+    }
+    .option{
+      text-align:left;
+    }
+    /* For Firefox */
+input[type='number'] {
+  -moz-appearance:textfield;
+}
+
+/* Webkit browsers like Safari and Chrome */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+  </style>
+
+    <meta charset="utf-8">
+    {% load static %}
+    <title>Home</title>
+  </head>
+  {% csrf_token %}
+  <body>
+     <a class="btn" style="float:right;text-style:none;" href="{%url 'logout' %}"> Logout</a>
+    <h1>Nice! {{ gamingname }} now wait for others..</h1>
+    <img src="{% static 'library/image/bean_dance.gif'  %}" style="width: 375px;height: 354px;border-radius: 25px;"><br>
+    <a class="btn" style="background-color: #36bef4;" href="{%url 'question' %}"> Go To Buzzer</a>
+    <!-- <table border="1">
+      <thead>
+        <th>Title</th>
+        <th>Pages</th>
+        <th>Price</th>
+      </thead>
+      <tbody>
+        {% for book in books %}
+          <tr>
+            <td>{{book.title}}</td>
+            <td>{{book.pages}}</td>
+            <td>{{book.price}}</td>
+          </tr>
+          {%endfor%}
+      </tbody>
+    </table> -->
+  </body>
+</html>
