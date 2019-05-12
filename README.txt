@@ -7,7 +7,7 @@ Admin can create superuser and visit admin side of django to see which competito
 Admin can filter, search and sort desirably
 
 ------Settings to be done-------
-create a empty database in mql named 'quizgame' (can be changed accordingly in settings.py)
+create a empty database in mysql named 'quizgame' (can be changed accordingly in settings.py)
 run manage.py
 
 -----Note-----
